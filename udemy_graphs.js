@@ -8,4 +8,8 @@ class Graph {
     constructor() {
         this.adjacencyList = {};
     }
+
+    addVertex(vertexName) {
+        this.adjacencyList[vertexName] = [];
+    }
 }
