@@ -80,4 +80,23 @@ class Graph {
         }
         return results;
     }
+
+    breadthFirstTraverse(start) {
+        const queue = [start];
+        const visitedArr = [];
+        const visitedObj = {};
+        let current;
+        visitedObj[start] = true;
+        while(queue.length) {
+            current = queue.shift();
+            visitedArr.push(current);
+            this.adjacencyList[current].forEach(neighbor => {
+                if(!visitedObj[neighbor]) {
+                    visitedObj[neighbor] = true;
+                    queue.push(neighbor); 
+                }
+            })
+        }
+        return visitedArr;
+    }
 }
