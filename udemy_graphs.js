@@ -39,4 +39,25 @@ class Graph {
         }
         delete this.adjacencyList[vertex];
     }
+
+    depthFirstRecursiveTraverse(start) {
+        const results = [];
+        const visited = {};
+        const adjacencyList = this.adjacencyList;
+
+        (function dfs(node) {
+            if(!node) {
+                return null;
+            }
+            results.push(node);
+            visited[node] = true;
+            adjacencyList[node].forEach(neighbor => {
+                if(!visited[neighbor]) {
+                    return dfs(neighbor)
+                }
+            })
+        })(start);
+
+        return results;
+    }
 }
