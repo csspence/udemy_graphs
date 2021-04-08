@@ -60,4 +60,24 @@ class Graph {
 
         return results;
     }
+
+    depthFirstIterativeTraverse(start) {
+        const stack = [start];
+        const results = [];
+        const visited = {};
+        let current;
+        visited[start] = true;
+
+        while(stack.length) {
+             current = stack.pop();
+            results.push(current);
+            this.adjacencyList[current].forEach(neighbor => {
+                if(!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    stack.push(neighbor) 
+                }
+            })
+        }
+        return results;
+    }
 }
