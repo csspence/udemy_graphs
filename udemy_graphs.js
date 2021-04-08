@@ -32,4 +32,11 @@ class Graph {
         this.adjacencyList[vertex1] = filter(this.adjacencyList[vertex1], vertex2);
         this.adjacencyList[vertex2] = filter(this.adjacencyList[vertex2], vertex1);
     }
+
+    removeVertex(vertex) {
+        for(let i = 0; i < this.adjacencyList[vertex].length; i++) {
+            this.removeEdge(vertex, this.adjacencyList[vertex][i]);
+        }
+        delete this.adjacencyList[vertex];
+    }
 }
