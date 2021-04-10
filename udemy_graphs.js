@@ -57,7 +57,6 @@ class Graph {
                 }
             })
         })(start);
-
         return results;
     }
 
